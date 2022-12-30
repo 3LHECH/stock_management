@@ -1,0 +1,99 @@
+﻿@model IEnumerable<stock_management.Models.Facture_Articles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Chercher par nom: @Html.TextBox("SearchString")
+        payer: <input type="checkbox" id="payer" name="payer" value="payement">
+        non payer: <input type="checkbox" id="payer" name="payer" value="npayement">
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Article.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_Arrivage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_Expiration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Article.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @{ switch (item.category)
+                    {
+                        case 1:
+                            <p>nourriture</p>
+                            break;
+                        case 2:
+                            <p>nettoyant</p>
+                            break;
+                        case 4:
+                            <p>mechanic</p>
+                            break;
+                        default:
+                            <p>il ya un probleme</p>
+                            break;
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_Arrivage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_Expiration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Facture_ArticleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Facture_ArticleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Facture_ArticleID })
+            </td>
+        </tr>
+    }
+
+</table>

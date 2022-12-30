@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to Gestion du stockage et factorisation </h1>
+    <p class="lead">Hi my name is mohamed hechmi bne hadid and this is my asp.net mvc5 project .<br/>hope  you like it. </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>first step</h2>
+        <p>
+            First you need to create an account
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>second step  </h2>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+
+            <p>you can see in the navbar that two new element have appeared . <br />If you want to add an article you can press article <br /> if you want to aad a facture you can press facturs</p>
+        }
+        else
+        {
+            <p>you need to be connected to see this!!!!</p>
+
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>third step</h2>
+        <h4>thanks :D </h4>
+    </div>
+
+</div>

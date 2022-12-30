@@ -1,0 +1,66 @@
+﻿@model stock_management.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd> 
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_Arrivage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_Arrivage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_Expiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_Expiration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit_Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
